@@ -25,6 +25,7 @@ import static org.fest.assertions.Assertions.assertThat;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.RollbackException;
 
 import org.hibernate.ogm.hiking.model.Hike;
 import org.hibernate.ogm.hiking.model.Person;
@@ -32,13 +33,13 @@ import org.hibernate.ogm.hiking.model.Section;
 import org.junit.Before;
 import org.junit.Test;
 
-public class HikeTest {
+public class HikeJpaTest {
 
 	private EntityManager entityManager;
 
 	@Before
 	public void setupEntityManager() {
-		EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory( "hike-PU" );
+		EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory( "hike-PU-mysql" );
 		entityManager = entityManagerFactory.createEntityManager();
 	}
 
@@ -75,8 +76,8 @@ public class HikeTest {
 		hike = entityManager.find( Hike.class, hike.getId() );
 
 		assertThat( hike.getSections() ).hasSize( 2 );
-		assertThat( hike.getSections().get( 0 ).getFrom() ).isEqualTo( "Land's End" );
-		assertThat( hike.getSections().get( 1 ).getFrom() ).isEqualTo( "Pendeen" );
+		assertThat( hike.getSections().get( 0 ).getStart() ).isEqualTo( "Land's End" );
+		assertThat( hike.getSections().get( 1 ).getStart() ).isEqualTo( "Pendeen" );
 
 		entityManager.getTransaction().commit();
 	}
@@ -105,7 +106,7 @@ public class HikeTest {
 		entityManager.getTransaction().commit();
 	}
 
-	@Test
+	@Test(expected=RollbackException.class)
 	public void validationTest() {
 		entityManager.getTransaction().begin();
 

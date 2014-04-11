@@ -25,35 +25,35 @@ import javax.persistence.Embeddable;
 @Embeddable
 public class Section {
 
-	private String from;
-	private String to;
+	private String start;
+	private String destination;
 
 	Section() {
 	}
 
-	public Section(String from, String to) {
-		this.from = from;
-		this.to = to;
+	public Section(String start, String destination) {
+		this.start = start;
+		this.destination = destination;
 	}
 
-	public String getFrom() {
-		return from;
+	public String getStart() {
+		return start;
 	}
 
-	public void setFrom(String from) {
-		this.from = from;
+	public void setStart(String start) {
+		this.start = start;
 	}
 
-	public String getTo() {
-		return to;
+	public String getDestination() {
+		return destination;
 	}
 
-	public void setTo(String to) {
-		this.to = to;
+	public void setDestination(String destination) {
+		this.destination = destination;
 	}
 
 	@Override
 	public String toString() {
-		return "Section [from=" + from + ", to=" + to + "]";
+		return "Section [start=" + start + ", destination=" + destination + "]";
 	}
 }

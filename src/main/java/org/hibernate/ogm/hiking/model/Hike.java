@@ -76,7 +76,7 @@ public class Hike {
 	}
 
 	@ElementCollection
-	@OrderColumn(name="order")
+	@OrderColumn(name="sectionOrder")
 	public List<Section> getSections() {
 		return sections;
 	}
@@ -96,6 +96,12 @@ public class Hike {
 
 	@Override
 	public String toString() {
-		return "Hike [id=" + id + ", start=" + start + ", destination=" + destination + "]";
+		return "Hike ["
+				+ "id=" + id + ", "
+				+ "start=" + start + ", "
+				+ "destination=" + destination + ", "
+				+ "organizer=" + (organizer != null ? organizer.getId() : "null") + ", "
+				+ "sections=" + sections
+				+ "]";
 	}
 }
