@@ -25,10 +25,6 @@ public class Hike {
 	@ManyToOne
 	public Person organizer;
 
-	@ElementCollection
-	@OrderColumn(name="order")
-	public List<Section> sections = new ArrayList<>();
-
 	Hike() {
 	}
 

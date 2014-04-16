@@ -20,7 +20,7 @@ public class Person {
 	@Size(min=3)
 	public String name;
 
-	@OneToMany
+	@OneToMany(mappedBy="organizer")
 	public Set<Hike> organizedHikes = new HashSet<>();
 
 	Person() {
