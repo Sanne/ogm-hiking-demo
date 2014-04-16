@@ -45,29 +45,6 @@ public class HikeTest {
 		entityManager.getTransaction().commit();
 	}
 
-	/*
-	@Test
-	public void embeddedCollectionTest() {
-		entityManager.getTransaction().begin();
-
-		Hike hike = new Hike( "Land's End", "Bristol" );
-		hike.sections.add( new Section( "Land's End", "Pendeen" ) );
-		hike.sections.add( new Section( "Pendeen", "Perranporth" ) );
-		entityManager.persist( hike );
-
-		entityManager.getTransaction().commit();
-
-		entityManager.getTransaction().begin();
-		hike = entityManager.find( Hike.class, hike.id );
-
-		assertThat( hike.sections ).hasSize( 2 );
-		assertThat( hike.sections.get( 0 ).from ).isEqualTo( "Land's End" );
-		assertThat( hike.sections.get( 1 ).from ).isEqualTo( "Pendeen" );
-
-		entityManager.getTransaction().commit();
-	}
-	*/
-
 	@Test
 	public void associationTest() {
 		entityManager.getTransaction().begin();
@@ -92,6 +69,30 @@ public class HikeTest {
 		entityManager.getTransaction().commit();
 	}
 
+/*
+	@Test
+	public void embeddedCollectionTest() {
+		entityManager.getTransaction().begin();
+
+		Hike hike = new Hike( "Land's End", "Bristol" );
+		hike.sections.add( new Section( "Land's End", "Pendeen" ) );
+		hike.sections.add( new Section( "Pendeen", "Perranporth" ) );
+		entityManager.persist( hike );
+
+		entityManager.getTransaction().commit();
+
+		entityManager.getTransaction().begin();
+		hike = entityManager.find( Hike.class, hike.id );
+
+		assertThat( hike.sections ).hasSize( 2 );
+		assertThat( hike.sections.get( 0 ).from ).isEqualTo( "Land's End" );
+		assertThat( hike.sections.get( 1 ).from ).isEqualTo( "Pendeen" );
+
+		entityManager.getTransaction().commit();
+	}
+*/
+
+/*
 	@Test
 	public void validationTest() {
 		exception.expect( Exception.class );
@@ -104,5 +105,5 @@ public class HikeTest {
 
 		entityManager.getTransaction().commit();
 	}
-
+*/
 }

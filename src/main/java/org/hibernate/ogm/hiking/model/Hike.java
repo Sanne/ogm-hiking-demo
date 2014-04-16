@@ -11,18 +11,14 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OrderColumn;
 
-@Entity
 public class Hike {
 
-	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
 	public long id;
 
 	public String start;
 	
 	public String destination;
 	
-	@ManyToOne
 	public Person organizer;
 
 	Hike() {

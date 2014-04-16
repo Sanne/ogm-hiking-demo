@@ -2,7 +2,6 @@ package org.hibernate.ogm.hiking.model;
 
 import javax.persistence.Embeddable;
 
-@Embeddable
 public class Section {
 
 	public String from;

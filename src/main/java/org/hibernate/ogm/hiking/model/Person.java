@@ -10,17 +10,12 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.Size;
 
-@Entity
 public class Person {
 
-	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
 	public long id;
 
-	@Size(min=3)
 	public String name;
 
-	@OneToMany(mappedBy="organizer")
 	public Set<Hike> organizedHikes = new HashSet<>();
 
 	Person() {
