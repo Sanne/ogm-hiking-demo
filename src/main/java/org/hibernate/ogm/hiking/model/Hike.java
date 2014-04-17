@@ -10,16 +10,25 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OrderColumn;
+import javax.validation.constraints.NotNull;
 
+@Entity
 public class Hike {
 
+	@Id @GeneratedValue
 	public long id;
 
+	@NotNull
 	public String start;
 	
+	@NotNull
 	public String destination;
 	
+	@ManyToOne
 	public Person organizer;
+
+	@ElementCollection
+	public List<Section> sections = new ArrayList<>();
 
 	Hike() {
 	}

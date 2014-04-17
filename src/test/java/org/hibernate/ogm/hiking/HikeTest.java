@@ -8,6 +8,7 @@ import javax.persistence.Persistence;
 
 import org.hibernate.ogm.hiking.model.Hike;
 import org.hibernate.ogm.hiking.model.Person;
+import org.hibernate.ogm.hiking.model.Section;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -69,7 +70,6 @@ public class HikeTest {
 		entityManager.getTransaction().commit();
 	}
 
-/*
 	@Test
 	public void embeddedCollectionTest() {
 		entityManager.getTransaction().begin();
@@ -90,9 +90,7 @@ public class HikeTest {
 
 		entityManager.getTransaction().commit();
 	}
-*/
 
-/*
 	@Test
 	public void validationTest() {
 		exception.expect( Exception.class );
@@ -105,5 +103,4 @@ public class HikeTest {
 
 		entityManager.getTransaction().commit();
 	}
-*/
 }

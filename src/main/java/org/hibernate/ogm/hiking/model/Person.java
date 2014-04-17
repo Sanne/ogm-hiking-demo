@@ -10,12 +10,15 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.Size;
 
+@Entity
 public class Person {
 
+	@Id @GeneratedValue
 	public long id;
 
 	public String name;
 
+	@OneToMany(mappedBy="organizer")
 	public Set<Hike> organizedHikes = new HashSet<>();
 
 	Person() {
