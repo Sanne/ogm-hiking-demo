@@ -23,8 +23,9 @@ public class HikeTest {
 
 	@Before
 	public void setupEntityManager() {
-		EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory( "hike-PU" );
-		entityManager = entityManagerFactory.createEntityManager();
+		EntityManagerFactory emf =
+				Persistence.createEntityManagerFactory( "hike-PU" );
+		entityManager = emf.createEntityManager();
 	}
 
 	@Test
@@ -70,7 +71,7 @@ public class HikeTest {
 	public void associationTest() {
 		entityManager.getTransaction().begin();
 
-		Hike hike = new Hike( "Land's End", "Bristol" );
+		Hike hike = new Hike( "San Francisco", "Oakland" );
 		Person bob = new Person( "Bob" );
 
 		hike.organizer = bob;
@@ -96,9 +97,9 @@ public class HikeTest {
 
 		entityManager.getTransaction().begin();
 
-		Person bob = new Person( "B" );
+		Hike hike = new Hike( null, null );
 
-		entityManager.persist( bob );
+		entityManager.persist( hike );
 
 		entityManager.getTransaction().commit();
 
